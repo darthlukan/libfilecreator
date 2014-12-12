@@ -6,8 +6,10 @@
 ## Description
 
 > Creates a file populated with data based on the desired file type and passed in file content values.
-> By default, the resulting file is saved in $LIBFILECREATORPATH/files/$FILE.$EXT.  Make sure you have write-access
-> to this directory!
+
+> By default, the resulting file is saved in $HOME/$FILE.$EXT ($USER $HOME directory).  If the filename value
+> that you pass in contains "/" then the library assumes that you want to write elsewhere, just make sure you 
+> have write access to the desired location!
 
 
 ## Usage Example1 (CSV)
@@ -25,7 +27,7 @@
     ]
     
     # >>> file
-    # $LIBFILECREATORPATH/files/test.csv
+    # $HOME/test.csv
     file = detect_and_write(filename, headers, rows)
     
 
@@ -45,6 +47,6 @@
     ]
     
     # >>> file
-    # $LIBFILECREATORPATH/files/test.csv
+    # $HOME/test.csv
     file = create_csv(filename, headers, rows)
     

@@ -1,4 +1,5 @@
 # ~*~ coding: utf-8 ~*~
+import os
 import csv
 
 
@@ -6,7 +7,7 @@ KNOWN_EXTENSIONS = ["csv"]
 
 
 def create_csv(filename, headers, rows):
-    new_filename = "files/%s" % filename
+    new_filename = "%s/%s" % (os.path.expanduser('~'), filename) if "/" not in filename else filename
     try:
         with open(new_filename, 'wt') as new_csv:
             writer = csv.DictWriter(new_csv, fieldnames=headers)
